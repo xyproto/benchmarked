@@ -53,9 +53,13 @@ PASS
 ok  	github.com/xyproto/benchmarked	17.929s
 ```
 
+Currently, `Equal9` is the function that is exported as `benchmarked.Equal`.
+
+## Accuracy
+
 I am aware that perfect benchmarking is a tricky.
 
-Please let me know if you have improvements to how the functions are benchmarked!
+Please let me know if you have improvements to how the functions are benchmarked, or how the benchmarks are interpreted!
 
 ## General info
 
