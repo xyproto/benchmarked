@@ -2,8 +2,9 @@
 
 The quest to find a faster `bytes.Equal` function.
 
-So far, the best performing function is 30% faster than `bytes.Equal`.
+So far, the best performing function is 30% faster than `bytes.Equal`, for random bytes (or very short slices).
 
+`bytes.Equal` is much faster for non-random slices.
 
 ## Code comparison
 
