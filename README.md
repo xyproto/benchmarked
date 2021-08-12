@@ -2,7 +2,7 @@
 
 The quest to find a faster `bytes.Equal` function.
 
-So far, this function is 24% faster:
+So far, this function is 24% faster than `bytes.Equal`:
 
 ```go
 func Equal(a, b []byte) bool {
