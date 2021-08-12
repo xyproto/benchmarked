@@ -263,3 +263,57 @@ func equal16(a, b []byte) bool {
 	}
 	return true
 }
+
+func equal17(a, b []byte) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	for i := 0; i < len(b); i++ {
+		if (i >= len(a)) || (a[i] != b[i]) {
+			return false
+		}
+	}
+	return true
+}
+
+func equal18(a, b []byte) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	for i := 0; i < len(a); i++ {
+		if a[i] != b[i] {
+			return false
+		}
+	}
+	return true
+}
+
+func equal19(a, b []byte) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	i := 0
+	for {
+		if i >= len(a) || a[i] != b[i] {
+			return false
+		}
+		i++
+	}
+	return true
+}
+
+func equal20(a, b []byte) bool {
+	la := uint(len(a))
+	lb := uint(len(b))
+	if la != lb {
+		return false
+	}
+	i := uint(0)
+	for {
+		if i >= la || a[i] != b[i] {
+			return false
+		}
+		i++
+	}
+	return true
+}
