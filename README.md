@@ -8,7 +8,7 @@ So far, the best performing function is 28% faster than `bytes.Equal`.
 ## Code comparison
 
 ```go
-func equal14(a, b []byte) bool {
+func Equal(a, b []byte) bool {
     if len(a) != len(b) {
         return false
     }
