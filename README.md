@@ -2,7 +2,8 @@
 
 The quest to find a faster `bytes.Equal` function.
 
-So far, this function is 28% faster than `bytes.Equal`:
+So far, the best performing function is 28% faster than `bytes.Equal`.
+
 
 ## Code comparison
 
@@ -20,6 +21,8 @@ func equal14(a, b []byte) bool {
 }
 ```
 
+If `if i >= len(a) ||` is removed, the performance is a tiny bit worse. This is a bit counter-intuitive.
+
 For comparison, `bytes.Equal` looks like this:
 
 ```go
@@ -28,7 +31,10 @@ func Equal(a, b []byte) bool {
 }
 ```
 
+
 ## Benchmark results
+
+Tested on Arch Linux, using `go version go1.16.7 linux/amd64`.
 
 ```
 goos: linux
@@ -42,6 +48,7 @@ BenchmarkEqual/equal3-12         	 1744081	       696.8 ns/op
 BenchmarkEqual/equal2-12         	 1711257	       694.3 ns/op
 BenchmarkEqual/equal11-12        	 1713615	       692.9 ns/op
 BenchmarkEqual/equal12-12        	 1819748	       638.0 ns/op
+BenchmarkEqual/equal15-12         	 1921959	       611.7 ns/op
 BenchmarkEqual/equal4-12         	 1930615	       614.8 ns/op
 BenchmarkEqual/equal7-12         	 1963322	       603.2 ns/op
 BenchmarkEqual/equal5-12         	 2042334	       590.3 ns/op
@@ -54,13 +61,15 @@ PASS
 ok  	github.com/xyproto/benchmarked	28.312s
 ```
 
-Currently, `equal14` is the function that is exported as `benchmarked.Equal`.
+Currently, `equal14` is the function that is exported as `Equal` in the `benchmarked` package.
+
 
 ## Accuracy
 
 I am aware that perfect benchmarking is a tricky.
 
 Please let me know if you have improvements to how the functions are benchmarked, or how the benchmarks are interpreted!
+
 
 ## General info
 
