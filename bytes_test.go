@@ -135,7 +135,7 @@ func benchBytes(name string, b *testing.B, sizes []int, f func(b *testing.B, n i
 		if isRaceBuilder && n > 4<<10 {
 			continue
 		}
-		b.Run(name + "_" + valName(n), func(b *testing.B) {
+		b.Run(name+"_"+valName(n), func(b *testing.B) {
 			if len(bmbuf) < n {
 				bmbuf = make([]byte, n)
 			}
