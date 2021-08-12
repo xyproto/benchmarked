@@ -62,7 +62,7 @@ PASS
 ok  	github.com/xyproto/benchmarked	31.966s
 ```
 
-Currently, `equal14` is the function that is exported as `Equal` in the `benchmarked` package.
+Currently, `equal14` is the function that is exported as `Equal` in the `benchmarked` package, but `equal9` is sometimes slight faster.
 
 
 ## Accuracy
