@@ -107,7 +107,9 @@ PASS
 ok  	github.com/xyproto/benchmarked	37.118s
 ```
 
-With this change, `byte.Equal` goes from 768 ns/op to 417.8 ns/op.
+The performance is pretty similar for `bytes.Equal` in Go 1.16 and Go 1.17.
+
+With the updated `Equal` function, the performance is better.
 
 ## General info
 
