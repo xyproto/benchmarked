@@ -2,7 +2,7 @@
 
 The quest to find a faster `bytes.Equal` function.
 
-So far, the best performing function is 28% faster than `bytes.Equal`.
+So far, the best performing function is 30% faster than `bytes.Equal`.
 
 
 ## Code comparison
@@ -41,24 +41,25 @@ goos: linux
 goarch: amd64
 pkg: github.com/xyproto/benchmarked
 cpu: Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
-BenchmarkEqual/equal6-12         	 1302963	       900.7 ns/op
-BenchmarkEqual/bytes.Equal-12    	 1627982	       735.7 ns/op
-BenchmarkEqual/equal1-12         	 1623241	       713.0 ns/op
-BenchmarkEqual/equal3-12         	 1744081	       696.8 ns/op
-BenchmarkEqual/equal2-12         	 1711257	       694.3 ns/op
-BenchmarkEqual/equal11-12        	 1713615	       692.9 ns/op
-BenchmarkEqual/equal12-12        	 1819748	       638.0 ns/op
-BenchmarkEqual/equal15-12         	 1921959	       611.7 ns/op
-BenchmarkEqual/equal4-12         	 1930615	       614.8 ns/op
-BenchmarkEqual/equal7-12         	 1963322	       603.2 ns/op
-BenchmarkEqual/equal5-12         	 2042334	       590.3 ns/op
-BenchmarkEqual/equal8-12         	 2036313	       578.2 ns/op
-BenchmarkEqual/equal10-12        	 2060468	       576.4 ns/op
-BenchmarkEqual/equal13-12        	 2168073	       542.9 ns/op
-BenchmarkEqual/equal9-12         	 2222503	       540.5 ns/op
-BenchmarkEqual/equal14-12        	 2218479	       532.1 ns/op
+BenchmarkEqual/equal6-12         	 1000000	      1066.0 ns/op
+BenchmarkEqual/equal3-12         	 1452951	       817.6 ns/op
+BenchmarkEqual/equal1-12         	 1553632	       803.4 ns/op
+BenchmarkEqual/bytes.Equal-12    	 1640098	       768.0 ns/op
+BenchmarkEqual/equal10-12        	 1699735	       753.1 ns/op
+BenchmarkEqual/equal8-12         	 1636986	       740.7 ns/op
+BenchmarkEqual/equal12-12        	 1777388	       685.6 ns/op
+BenchmarkEqual/equal15-12        	 1789273	       674.1 ns/op
+BenchmarkEqual/equal11-12        	 1798375	       667.2 ns/op
+BenchmarkEqual/equal16-12        	 1767123	       663.7 ns/op
+BenchmarkEqual/equal5-12         	 1892774	       653.7 ns/op
+BenchmarkEqual/equal4-12         	 1916486	       617.6 ns/op
+BenchmarkEqual/equal7-12         	 1945572	       610.1 ns/op
+BenchmarkEqual/equal2-12         	 1943868	       610.6 ns/op
+BenchmarkEqual/equal13-12        	 2085339	       575.5 ns/op
+BenchmarkEqual/equal9-12         	 2122830	       574.2 ns/op
+BenchmarkEqual/equal14-12        	 2230186	       534.8 ns/op
 PASS
-ok  	github.com/xyproto/benchmarked	28.312s
+ok  	github.com/xyproto/benchmarked	31.966s
 ```
 
 Currently, `equal14` is the function that is exported as `Equal` in the `benchmarked` package.
