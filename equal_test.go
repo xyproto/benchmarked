@@ -2,6 +2,7 @@ package benchmarked
 
 import (
 	"bytes"
+	"fmt"
 	"math/rand"
 	"testing"
 )
@@ -51,20 +52,8 @@ func randomBytes(maxIndex int) []byte {
 }
 
 func BenchmarkEqual(b *testing.B) {
-
 	for k, v := range functions {
-
 		b.Run(k, func(b *testing.B) {
-			/*
-				b.StopTimer()
-				b1s := make([][]byte, b.N)
-				b2s := make([][]byte, b.N)
-				for i := 0; i < b.N; i++ {
-					b1s[i] = RandomBytes(numbytes)
-					b2s[i] = RandomBytes(numbytes)
-				}
-				b.StartTimer()
-			*/
 			r := false
 			for x := 0; x < maxLen; x++ {
 				for y := 0; y < maxLen; y++ {
@@ -80,6 +69,20 @@ func BenchmarkEqual(b *testing.B) {
 
 			result = r
 		})
+		// From go/src/bytes/bytes_test.go
+		b.Run(k+"_0", func(b *testing.B) {
+			var buf [4]byte
+			buf1 := buf[0:0]
+			buf2 := buf[1:1]
+			for i := 0; i < b.N; i++ {
+				eq := v(buf1, buf2)
+				if !eq {
+					b.Fatal("bad equal")
+				}
+			}
+		})
+		sizes := []int{1, 6, 9, 15, 16, 20, 32, 4 << 10, 4 << 20, 64 << 20}
+		benchBytes(k, b, sizes, bmEqual(v))
 	}
 }
 
