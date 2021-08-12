@@ -17,12 +17,12 @@ var (
 	functions = map[string]bytesEqualFunctionType{
 		"bytes.Equal": bytes.Equal,
 		"equal1":      equal1,
+		"equal2":      equal2,
+		"equal3":      equal3,
 		"equal4":      equal4,
 		"equal5":      equal5,
+		"equal6":      equal6,
 		"equal7":      equal7,
-		"equal8":      equal8,
-		"equal14":     equal14,
-		"equal18":     equal18,
 	}
 )
 
