@@ -24,17 +24,17 @@ func TestEqualExhaustive(t *testing.T) {
 	}
 	a := make([]byte, size)
 	b := make([]byte, size)
-	b_init := make([]byte, size)
+	bInit := make([]byte, size)
 	// randomish but deterministic data
 	for i := 0; i < size; i++ {
 		a[i] = byte(17 * i)
-		b_init[i] = byte(23*i + 100)
+		bInit[i] = byte(23*i + 100)
 	}
 
 	for len := 0; len <= size; len++ {
 		for x := 0; x <= size-len; x++ {
 			for y := 0; y <= size-len; y++ {
-				copy(b, b_init)
+				copy(b, bInit)
 				copy(b[y:y+len], a[x:x+len])
 				if !Equal(a[x:x+len], b[y:y+len]) || !Equal(b[y:y+len], a[x:x+len]) {
 					t.Errorf("Equal(%d, %d, %d) = false", len, x, y)
