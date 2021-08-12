@@ -23,7 +23,7 @@ func Equal(a, b []byte) bool {
 
 If `if i >= len(a) ||` is removed, the performance is slightly worse. This is a bit counter-intuitive.
 
-For comparison, `bytes.Equal` looks like this:
+For comparison, `bytes.Equal` looks like [this](https://cs.opensource.google/go/go/+/refs/tags/go1.16.7:src/bytes/bytes.go;l=18):
 
 ```go
 func Equal(a, b []byte) bool {
