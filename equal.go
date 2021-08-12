@@ -1,7 +1,7 @@
 package benchmarked
 
 // Equal checks if two slices of bytes are equal
-var Equal = equal14
+var Equal = equal7 // previously equal14
 
 func equal1(a, b []byte) bool {
 	return string(a) == string(b)
