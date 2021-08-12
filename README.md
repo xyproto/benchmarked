@@ -1,4 +1,4 @@
-# benchmarked
+# Benchmarked
 
 The quest to find a faster `bytes.Equal` function.
 
@@ -29,7 +29,6 @@ func Equal(a, b []byte) bool {
 }
 ```
 
-
 Benchmark results:
 
 ```
@@ -58,3 +57,9 @@ ok  	github.com/xyproto/benchmarked	17.929s
 I am aware that perfect benchmarking is a tricky.
 
 Please let me know if you have improvements to how the functions are benchmarked!
+
+## General info
+
+* Version: 0.0.1
+* License: BSD
+* Author: Alexander F. Rødseth &lt;xyproto@archlinux.org&gt;
