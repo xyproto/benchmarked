@@ -14,39 +14,8 @@ import (
 var bmbuf []byte
 var isRaceBuilder = false
 
-func eq(a, b []string) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for i := 0; i < len(a); i++ {
-		if a[i] != b[i] {
-			return false
-		}
-	}
-	return true
-}
-
-func sliceOfString(s [][]byte) []string {
-	result := make([]string, len(s))
-	for i, v := range s {
-		result[i] = string(v)
-	}
-	return result
-}
-
 // For ease of reading, the test cases use strings that are converted to byte
 // slices before invoking the functions.
-
-var abcd = "abcd"
-var faces = "☺☻☹"
-var commas = "1,2,3,4"
-var dots = "1....2....3....4"
-
-type BinOpTest struct {
-	a string
-	b string
-	i int
-}
 
 func TestEqualExhaustive(t *testing.T) {
 	var size = 128
@@ -118,18 +87,6 @@ func bmEqual(equal func([]byte, []byte) bool) func(b *testing.B, n int) {
 		buf1[n-1] = '\x00'
 		buf2[n-1] = '\x00'
 	}
-}
-
-func runesEqual(a, b []rune) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for i, r := range a {
-		if r != b[i] {
-			return false
-		}
-	}
-	return true
 }
 
 func benchBytes(name string, b *testing.B, sizes []int, f func(b *testing.B, n int)) {
