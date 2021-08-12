@@ -31,6 +31,7 @@ var (
 		"equal13":     equal13,
 		"equal14":     equal14,
 		"equal15":     equal15,
+		"equal16":     equal16,
 	}
 )
 

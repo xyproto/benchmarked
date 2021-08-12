@@ -251,3 +251,15 @@ func equal15(a, b []byte) bool {
 	}
 	return true
 }
+
+func equal16(a, b []byte) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	for i := 0;; i++ {
+		if i >= len(b) || a[i] != b[i] {
+			return false
+		}
+	}
+	return true
+}
