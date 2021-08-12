@@ -1,4 +1,4 @@
-package main
+package benchmarked
 
 // Equal checks if two slices of bytes are equal
 //
