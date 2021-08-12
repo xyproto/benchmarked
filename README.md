@@ -64,6 +64,6 @@ Please let me know if you have improvements to how the functions are benchmarked
 
 ## General info
 
-* Version: 0.0.1
+* Version: 0.1.0
 * License: BSD
 * Author: Alexander F. Rødseth &lt;xyproto@archlinux.org&gt;
