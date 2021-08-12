@@ -73,7 +73,7 @@ func equal4(a, b []byte) bool {
 	}
 	// The length is 6 or above, so start at index 5
 	// First check the exponential locations, from 5
-	for x := 5; x < la; x*=2 {
+	for x := 5; x < la; x *= 2 {
 		if x >= lb || a[x] != b[x] {
 			return false
 		}
@@ -135,4 +135,104 @@ func equal8(a, b []byte) bool {
 		}
 	}
 	return true
+}
+
+func equal9(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 0:
+		return lb == 0
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 2:
+		return lb == 2 && a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 4:
+		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+	case lb:
+		break
+	default: // la != lb
+		return false
+	}
+	return string(a) == string(b)
+}
+
+func equal10(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 0:
+		return lb == 0
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 2:
+		return lb == 2 && a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 4:
+		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+	case 5:
+		return lb == 5 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4]
+	case lb:
+		break
+	default: // la != lb
+		return false
+	}
+	return string(a) == string(b)
+}
+
+func equal11(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 0:
+		return lb == 0
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 2:
+		return lb == 2 && a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 4:
+		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+	case 5:
+		return lb == 5 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4]
+	case 6:
+		return lb == 6 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4] && a[5] == b[5]
+	case lb:
+		break
+	default: // la != lb
+		return false
+	}
+	return string(a) == string(b)
+}
+
+func equal12(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 0:
+		return lb == 0
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 2:
+		return lb == 2 && a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 4:
+		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+	case 5:
+		return lb == 5 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4]
+	case 6:
+		return lb == 6 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4] && a[5] == b[5]
+	case 7:
+		return lb == 7 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4] && a[5] == b[5] && a[6] == b[6]
+	case lb:
+		break
+	default: // la != lb
+		return false
+	}
+	return string(a) == string(b)
 }
