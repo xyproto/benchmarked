@@ -82,3 +82,9 @@ func BenchmarkEqual(b *testing.B) {
 		})
 	}
 }
+
+func TestEqual(t *testing.T) {
+	if !Equal(nil, nil) {
+		t.Fatal("nil and nil should be equal")
+	}
+}
