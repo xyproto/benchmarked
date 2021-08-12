@@ -29,7 +29,7 @@ func Equal(a, b []byte) bool {
 }
 ```
 
-Benchmark results:
+## Benchmark results
 
 ```
 goos: linux
