@@ -2,8 +2,9 @@
 
 The quest to find a faster `bytes.Equal` function.
 
-So far, the best performing function is 30% faster than `bytes.Equal`.
+So far, the best performing function is 30% faster than `bytes.Equal`, for random bytes (or very short slices).
 
+`bytes.Equal` is much faster for non-random slices.
 
 ## Code comparison
 
@@ -107,10 +108,11 @@ PASS
 ok  	github.com/xyproto/benchmarked	37.118s
 ```
 
-With this change, `byte.Equal` goes from 768 ns/op to 417.8 ns/op.
+The performance is pretty similar for `bytes.Equal` in Go 1.16 and Go 1.17.
+
+With the updated `Equal` function, the performance is better, but only for random byte slices.
 
 ## General info
 
 * Version: 0.1.0
 * License: BSD
-* Author: Alexander F. Rødseth &lt;xyproto@archlinux.org&gt;
