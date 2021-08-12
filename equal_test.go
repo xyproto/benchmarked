@@ -6,7 +6,6 @@ import (
 	"testing"
 )
 
-
 // max length of byte slices that are created for the benchmarks
 const maxLen = 16
 
@@ -15,23 +14,24 @@ type bytesEqualFunctionType func([]byte, []byte) bool
 var (
 	result bool
 
-    functions = map[string]bytesEqualFunctionType{
-	"bytes.Equal": bytes.Equal,
-	"equal1":      equal1,
-	"equal2":      equal2,
-	"equal3":      equal3,
-	"equal4":      equal4,
-	"equal5":      equal5,
-	"equal6":      equal6,
-	"equal7":      equal7,
-	"equal8":      equal8,
-	"equal9":      equal9,
-	"equal10":     equal10,
-	"equal11":     equal11,
-	"equal12":     equal12,
-	"equal13":     equal13,
-	"equal14":     equal14,
-}
+	functions = map[string]bytesEqualFunctionType{
+		"bytes.Equal": bytes.Equal,
+		"equal1":      equal1,
+		"equal2":      equal2,
+		"equal3":      equal3,
+		"equal4":      equal4,
+		"equal5":      equal5,
+		"equal6":      equal6,
+		"equal7":      equal7,
+		"equal8":      equal8,
+		"equal9":      equal9,
+		"equal10":     equal10,
+		"equal11":     equal11,
+		"equal12":     equal12,
+		"equal13":     equal13,
+		"equal14":     equal14,
+		"equal15":     equal15,
+	}
 )
 
 func randomBytes(maxIndex int) []byte {

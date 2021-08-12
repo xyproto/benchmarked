@@ -127,7 +127,6 @@ func equal8(a, b []byte) bool {
 	return true
 }
 
-// Best performance so far
 func equal9(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
@@ -235,6 +234,18 @@ func equal14(a, b []byte) bool {
 	}
 	for i := 0; i < len(b); i++ {
 		if i >= len(a) || a[i] != b[i] {
+			return false
+		}
+	}
+	return true
+}
+
+func equal15(a, b []byte) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	for i := 0; i < len(b); i++ {
+		if a[i] != b[i] {
 			return false
 		}
 	}
