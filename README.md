@@ -21,7 +21,7 @@ func Equal(a, b []byte) bool {
 }
 ```
 
-If `if i >= len(a) ||` is removed, the performance is a tiny bit worse. This is a bit counter-intuitive.
+If `if i >= len(a) ||` is removed, the performance is slightly worse. This is a bit counter-intuitive.
 
 For comparison, `bytes.Equal` looks like this:
 
