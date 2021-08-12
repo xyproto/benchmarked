@@ -12,7 +12,6 @@ func Equal(a, b []byte) bool {
         return false
     }
     for i := 0; i < lb; i++ {
-        // Be able to escape while finding the lenght of b
         if i >= la || a[i] != b[i] {
             return false
         }
