@@ -93,7 +93,6 @@ func equal6(a, b []byte) bool {
 		la++
 	}
 	for i, v := range b {
-		// Be able to escape WHILE finding the lenght of b!
 		if i >= la {
 			return false
 		} else if a[i] != v {
@@ -106,7 +105,6 @@ func equal6(a, b []byte) bool {
 func equal7(a, b []byte) bool {
 	la := len(a)
 	for i, v := range b {
-		// Be able to escape WHILE finding the lenght of b!
 		if i >= la || a[i] != v {
 			return false
 		}
@@ -123,7 +121,6 @@ func equal8(a, b []byte) bool {
 		return false
 	}
 	for i := 0; i < lb; i++ {
-		// Be able to escape WHILE finding the lenght of b!
 		if i >= la || a[i] != b[i] {
 			return false
 		}
@@ -139,7 +136,6 @@ func equal9(a, b []byte) bool {
 		return false
 	}
 	for i := 0; i < lb; i++ {
-		// Be able to escape WHILE finding the lenght of b!
 		if i >= la || a[i] != b[i] {
 			return false
 		}
