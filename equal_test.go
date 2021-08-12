@@ -2,7 +2,6 @@ package benchmarked
 
 import (
 	"bytes"
-	"fmt"
 	"math/rand"
 	"testing"
 )
