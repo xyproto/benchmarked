@@ -223,8 +223,19 @@ func equal13(a, b []byte) bool {
 		return true
 	}
 	for i := 0; i < lb; i++ {
-		// Be able to escape WHILE finding the lenght of b!
 		if i >= la || a[i] != b[i] {
+			return false
+		}
+	}
+	return true
+}
+
+func equal14(a, b []byte) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	for i := 0; i < len(b); i++ {
+		if i >= len(a) || a[i] != b[i] {
 			return false
 		}
 	}
