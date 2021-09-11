@@ -6,7 +6,7 @@ The quest to find a faster `bytes.Equal` function.
 
 Tested on Arch Linux, using `go version go1.17.1 linux/amd64`.
 
-`equal33` does better than `bytes.Equal` for many of the benchmarks.
+`equal33` does better than `bytes.Equal` for some of the benchmarks.
 
 Output from `go test -bench=.`, also using benchmark functions that comes with the Go compiler source code itself:
 
