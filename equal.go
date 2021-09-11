@@ -32,19 +32,6 @@ func equal1(a, b []byte) bool {
 func equal2(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
-	for i := 0; i < la; i++ {
-		if i >= lb {
-			return false
-		} else if a[i] != b[i] {
-			return false
-		}
-	}
-	return true
-}
-
-func equal3(a, b []byte) bool {
-	la := len(a)
-	lb := len(b)
 	switch la {
 	case 0:
 		return lb == 0
@@ -72,7 +59,7 @@ func equal3(a, b []byte) bool {
 	return true
 }
 
-func equal4(a, b []byte) bool {
+func equal3(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -109,7 +96,7 @@ func equal4(a, b []byte) bool {
 	return true
 }
 
-func equal5(a, b []byte) bool {
+func equal4(a, b []byte) bool {
 	if len(a) != len(b) {
 		return false
 	}
@@ -121,19 +108,7 @@ func equal5(a, b []byte) bool {
 	return true
 }
 
-func equal6(a, b []byte) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	for i := 0; i < len(a); i++ {
-		if a[i] != b[i] {
-			return false
-		}
-	}
-	return true
-}
-
-func equal7(a, b []byte) bool {
+func equal5(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -157,7 +132,7 @@ func equal7(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal8(a, b []byte) bool {
+func equal6(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -183,7 +158,7 @@ func equal8(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal9(a, b []byte) bool {
+func equal7(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -213,7 +188,7 @@ func equal9(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal10(a, b []byte) bool {
+func equal8(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -234,7 +209,7 @@ func equal10(a, b []byte) bool {
 	}
 }
 
-func equal11(a, b []byte) bool {
+func equal9(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -253,7 +228,7 @@ func equal11(a, b []byte) bool {
 	}
 }
 
-func equal12(a, b []byte) bool {
+func equal10(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -276,7 +251,7 @@ func equal12(a, b []byte) bool {
 	}
 }
 
-func equal13(a, b []byte) bool {
+func equal11(a, b []byte) bool {
 	la := len(a)
 	if la < 9 {
 		lb := len(b)
@@ -291,6 +266,52 @@ func equal13(a, b []byte) bool {
 			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
 		case 4:
 			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+		}
+	}
+	return string(a) == string(b)
+}
+
+func equal12(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	if la != lb {
+		return false
+	}
+	if la == 0 {
+		return true
+	}
+	if la <= 4 {
+		switch la {
+		case 0:
+			return lb == 0
+		case 1:
+			return lb == 1 && a[0] == b[0]
+		case 2:
+			return lb == 2 && a[0] == b[0] && a[1] == b[1]
+		case 3:
+			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+		case 4:
+			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+		}
+	}
+	return string(a[4:]) == string(b[4:])
+}
+
+func equal13(a, b []byte) bool {
+	la := len(a)
+	if la < 9 {
+		lb := len(b)
+		switch la {
+		case 1:
+			return lb == 1 && a[0] == b[0]
+		case 2:
+			return lb == 2 && a[0] == b[0] && a[1] == b[1]
+		case 3:
+			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+		case 4:
+			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+		case 0:
+			return lb == 0
 		}
 	}
 	return string(a) == string(b)
@@ -301,14 +322,14 @@ func equal14(a, b []byte) bool {
 	if la < 9 {
 		lb := len(b)
 		switch la {
-		case 1:
-			return lb == 1 && a[0] == b[0]
-		case 2:
-			return lb == 2 && a[0] == b[0] && a[1] == b[1]
-		case 3:
-			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
 		case 4:
 			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+		case 3:
+			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+		case 2:
+			return lb == 2 && a[0] == b[0] && a[1] == b[1]
+		case 1:
+			return lb == 1 && a[0] == b[0]
 		case 0:
 			return lb == 0
 		}
@@ -317,26 +338,6 @@ func equal14(a, b []byte) bool {
 }
 
 func equal15(a, b []byte) bool {
-	la := len(a)
-	if la < 9 {
-		lb := len(b)
-		switch la {
-		case 4:
-			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
-		case 3:
-			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
-		case 2:
-			return lb == 2 && a[0] == b[0] && a[1] == b[1]
-		case 1:
-			return lb == 1 && a[0] == b[0]
-		case 0:
-			return lb == 0
-		}
-	}
-	return string(a) == string(b)
-}
-
-func equal16(a, b []byte) bool {
 	la := len(a)
 	if la < 5 {
 		lb := len(b)
@@ -356,7 +357,7 @@ func equal16(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal17(a, b []byte) bool {
+func equal16(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -368,7 +369,7 @@ func equal17(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal18(a, b []byte) bool {
+func equal17(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -382,7 +383,7 @@ func equal18(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal19(a, b []byte) bool {
+func equal18(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -398,7 +399,7 @@ func equal19(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal20(a, b []byte) bool {
+func equal19(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -416,7 +417,7 @@ func equal20(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal21(a, b []byte) bool {
+func equal20(a, b []byte) bool {
 	if len(a) != len(b) {
 		return false
 	}
@@ -437,7 +438,7 @@ func equal21(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal22(a, b []byte) bool {
+func equal21(a, b []byte) bool {
 	l := len(a)
 	if l != len(b) {
 		return false
@@ -461,7 +462,7 @@ func equal22(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal23(a, b []byte) bool {
+func equal22(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch lb {
@@ -489,4 +490,88 @@ func equal23(a, b []byte) bool {
 		return false
 	}
 	return string(b) == string(a)
+}
+
+func equal23(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 0:
+		return lb == 0
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 2:
+		return lb == 2 && a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 4:
+		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+	case lb:
+		break
+	default: // la != lb
+		return false
+	}
+	// The length is 5 or above, start at index 4
+	for i := 4; i < la; i++ {
+		if i >= lb {
+			return false
+		} else if a[i] != b[i] {
+			return false
+		} else if i >= 16 {
+			return string(b) == string(a)
+		}
+	}
+	return true
+}
+
+func equal24(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 0:
+		return lb == 0
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 2:
+		return lb == 2 && a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 4:
+		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+	case lb:
+		break
+	default: // la != lb
+		return false
+	}
+	// The length is 5 or above, start at index 4
+	return string(b[4:]) == string(a[4:])
+}
+
+func equal25(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 0:
+		return lb == 0
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 2:
+		return lb == 2 && a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 4:
+		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+	case 5:
+		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4]
+	case 6:
+		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4] && a[5] == b[5]
+	case 7:
+		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4] && a[5] == b[5] && a[6] == b[6]
+	case lb:
+		break
+	default: // la != lb
+		return false
+	}
+	// The length is 8 or above, start at index 7
+	return string(b[7:]) == string(a[7:])
 }
