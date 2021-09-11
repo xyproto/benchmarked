@@ -5,7 +5,7 @@ import (
 )
 
 // Equal checks if two slices of bytes are equal
-var Equal = equal21 // equal21 was best at the 64M benchmark
+var Equal = equal15 // equal21 was best at the 64M benchmark
 
 func examineCenter(start, stop int, a, b *[]byte, wg *sync.WaitGroup, differ *bool) {
 	if start == stop {
@@ -213,6 +213,115 @@ func equal9(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
+	case 5:
+		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4]
+	case 4:
+		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+
+	case 3:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 2:
+		return lb == 2 && a[0] == b[0] && a[1] == b[1]
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 0:
+		return lb == 0
+	case lb:
+		return !(string(a) != string(b))
+	default: // la != lb
+		return false
+	}
+}
+
+func equal10(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 4:
+		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+	case 3:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 2:
+		return lb == 2 && a[0] == b[0] && a[1] == b[1]
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 0:
+		return lb == 0
+	case lb:
+		return !(string(a) != string(b))
+	default: // la != lb
+		return false
+	}
+}
+
+func equal11(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 3:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 2:
+		return lb == 2 && a[0] == b[0] && a[1] == b[1]
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 0:
+		return lb == 0
+	case lb:
+		return !(string(a) != string(b))
+	default: // la != lb
+		return false
+	}
+}
+
+func equal12(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 2:
+		return lb == 2 && a[0] == b[0] && a[1] == b[1]
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 0:
+		return lb == 0
+	case lb:
+		return !(string(a) != string(b))
+	default: // la != lb
+		return false
+	}
+}
+
+func equal13(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 0:
+		return lb == 0
+	case lb:
+		return !(string(a) != string(b))
+	default: // la != lb
+		return false
+	}
+}
+
+func equal14(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 0:
+		return lb == 0
+	case lb:
+		return !(string(a) != string(b))
+	default: // la != lb
+		return false
+	}
+}
+
+func equal15(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
 	case 0:
 		return lb == 0
 	case 1:
@@ -228,7 +337,7 @@ func equal9(a, b []byte) bool {
 	}
 }
 
-func equal10(a, b []byte) bool {
+func equal16(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -251,7 +360,7 @@ func equal10(a, b []byte) bool {
 	}
 }
 
-func equal11(a, b []byte) bool {
+func equal17(a, b []byte) bool {
 	la := len(a)
 	if la < 5 {
 		lb := len(b)
@@ -271,7 +380,7 @@ func equal11(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal13(a, b []byte) bool {
+func equal18(a, b []byte) bool {
 	la := len(a)
 	if la < 9 {
 		lb := len(b)
@@ -291,7 +400,7 @@ func equal13(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal14(a, b []byte) bool {
+func equal19(a, b []byte) bool {
 	la := len(a)
 	if la < 9 {
 		lb := len(b)
@@ -311,7 +420,7 @@ func equal14(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal15(a, b []byte) bool {
+func equal20(a, b []byte) bool {
 	la := len(a)
 	if la < 5 {
 		lb := len(b)
@@ -331,7 +440,7 @@ func equal15(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal16(a, b []byte) bool {
+func equal21(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -343,7 +452,7 @@ func equal16(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal17(a, b []byte) bool {
+func equal22(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -357,7 +466,7 @@ func equal17(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal18(a, b []byte) bool {
+func equal23(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -373,7 +482,7 @@ func equal18(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal19(a, b []byte) bool {
+func equal24(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -391,7 +500,7 @@ func equal19(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal20(a, b []byte) bool {
+func equal25(a, b []byte) bool {
 	if len(a) != len(b) {
 		return false
 	}
@@ -412,7 +521,7 @@ func equal20(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal21(a, b []byte) bool {
+func equal26(a, b []byte) bool {
 	l := len(a)
 	if l != len(b) {
 		return false
@@ -436,7 +545,7 @@ func equal21(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal22(a, b []byte) bool {
+func equal27(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch lb {
@@ -466,7 +575,7 @@ func equal22(a, b []byte) bool {
 	return string(b) == string(a)
 }
 
-func equal23(a, b []byte) bool {
+func equal28(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -498,7 +607,7 @@ func equal23(a, b []byte) bool {
 	return true
 }
 
-func equal24(a, b []byte) bool {
+func equal29(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -521,7 +630,7 @@ func equal24(a, b []byte) bool {
 	return string(b[4:]) == string(a[4:])
 }
 
-func equal25(a, b []byte) bool {
+func equal30(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -550,7 +659,7 @@ func equal25(a, b []byte) bool {
 	return string(b[7:]) == string(a[7:])
 }
 
-func equal12(a, b []byte) bool {
+func equal31(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	if la != lb {
@@ -574,7 +683,7 @@ func equal12(a, b []byte) bool {
 	return string(a[4:]) == string(b[4:])
 }
 
-func equal26(a, b []byte) bool {
+func equal32(a, b []byte) bool {
 	l := len(a)
 	if l != len(b) {
 		return false
@@ -598,7 +707,7 @@ func equal26(a, b []byte) bool {
 	return string(a[6:]) == string(b[6:])
 }
 
-func equal27(a, b []byte) bool {
+func equal33(a, b []byte) bool {
 	l := len(a)
 	if l != len(b) {
 		return false
