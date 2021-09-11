@@ -7,7 +7,7 @@ import (
 )
 
 // max length of byte slices that are created for the benchmarks
-const maxLen = 16
+const maxLen = 32
 
 type bytesEqualFunctionType func([]byte, []byte) bool
 
@@ -16,37 +16,39 @@ var (
 
 	functions = map[string]bytesEqualFunctionType{
 		"bytes.Equal": bytes.Equal,
-		"equal1":      equal1,
-		"equal2":      equal2,
-		"equal3":      equal3,
-		"equal4":      equal4,
-		"equal6":      equal6,
-		"equal7":      equal7,
-		"equal8":      equal8,
-		"equal9":      equal9,
-		"equal10":     equal10,
-		"equal11":     equal11,
-		"equal12":     equal12,
-		"equal13":     equal13,
-		"equal14":     equal14,
-		"equal15":     equal15,
-		"equal16":     equal16,
-		"equal17":     equal17,
-		"equal18":     equal18,
-		"equal19":     equal19,
-		"equal20":     equal20,
-		"equal21":     equal21,
-		"equal22":     equal22,
-		"equal23":     equal23,
-		"equal24":     equal24,
-		"equal25":     equal25,
-		"equal26":     equal26,
-		"equal27":     equal27,
-		"equal28":     equal28,
-		"equal29":     equal29,
-		"equal30":     equal30,
-		"equal31":     equal31,
-		"equal32":     equal32,
+		//"equal1":      equal1,
+		//"equal2": equal2,
+		//"equal3":      equal3,
+		//"equal4":      equal4,
+		//"equal6":      equal6,
+		//"equal7":      equal7,
+		//"equal8":      equal8,
+		//"equal9":      equal9,
+		"equal10": equal10,
+		//"equal11":     equal11,
+		//"equal12":     equal12,
+		//"equal13": equal13,
+		//"equal14":     equal14,
+		//"equal15":     equal15,
+		//"equal16":     equal16,
+		//"equal17":     equal17,
+		//"equal18":     equal18,
+		//"equal19":     equal19,
+		//"equal20":     equal20,
+		//"equal21": equal21,
+		//"equal22":     equal22,
+		//"equal23":     equal23,
+		//"equal24":     equal24,
+		//"equal25":     equal25,
+		//"equal26":     equal26,
+		//"equal27":     equal27,
+		//"equal28":     equal28,
+		//"equal29":     equal29,
+		//"equal30":     equal30,
+		//"equal31":     equal31,
+		//"equal32":     equal32,
+		"equal33": equal33,
+		"equal34": equal34,
 	}
 )
 
@@ -91,7 +93,7 @@ func BenchmarkEqual(b *testing.B) {
 				}
 			}
 		})
-		sizes := []int{1, 6, 9, 15, 16, 20, 32, 4 << 10, 4 << 20, 64 << 20}
+		sizes := []int{1, 6, 9, 15, 16, 20, 32, 4 << 10, 4 << 20, 64 << 20, 128 << 20}
 		benchBytes(k, b, sizes, bmEqual(v))
 	}
 }
