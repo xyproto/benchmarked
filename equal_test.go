@@ -40,6 +40,8 @@ var (
 		"equal23":     equal23,
 		"equal24":     equal24,
 		"equal25":     equal25,
+		"equal26":     equal26,
+		"equal27":     equal27,
 	}
 )
 
