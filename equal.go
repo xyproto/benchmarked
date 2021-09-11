@@ -216,7 +216,6 @@ func equal11(a, b []byte) bool {
 func equal12(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
-
 	switch la {
 	case 0:
 		return lb == 0
@@ -234,6 +233,8 @@ func equal12(a, b []byte) bool {
 		return lb == 6 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4] && a[5] == b[5]
 	case 7:
 		return lb == 7 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4] && a[5] == b[5] && a[6] == b[6]
+	case 8:
+		return lb == 8 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4] && a[5] == b[5] && a[6] == b[6] && a[7] == b[7]
 	case lb:
 		break
 	default: // la != lb
@@ -260,7 +261,7 @@ func examineCenter(start, stop int, a, b *[]byte, wg *sync.WaitGroup, differ *bo
 	wg.Done()
 }
 
-func equal14(a, b []byte) bool {
+func equal13(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -281,7 +282,7 @@ func equal14(a, b []byte) bool {
 	}
 }
 
-func equal15(a, b []byte) bool {
+func equal14(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -291,4 +292,34 @@ func equal15(a, b []byte) bool {
 		return len(b) == 2 && a[0] == b[0] && a[1] == b[1]
 	}
 	return string(a) == string(b)
+}
+
+func equal15(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch lb {
+	case 0:
+		return la == 0
+	case 1:
+		return la == 1 && a[0] == b[0]
+	case 2:
+		return la == 2 && a[1] == b[1] && a[0] == b[0]
+	case 3:
+		return la == 3 && a[2] == b[2] && a[1] == b[1] && a[0] == b[0]
+	case 4:
+		return la == 4 && a[3] == b[3] && a[2] == b[2] && a[1] == b[1] && a[0] == b[0]
+	case 5:
+		return la == 5 && a[4] == b[4] && a[3] == b[3] && a[2] == b[2] && a[1] == b[1] && a[0] == b[0]
+	case 6:
+		return la == 6 && a[5] == b[5] && a[4] == b[4] && a[3] == b[3] && a[2] == b[2] && a[1] == b[1] && a[0] == b[0]
+	case 7:
+		return la == 7 && a[6] == b[6] && a[5] == b[5] && a[4] == b[4] && a[3] == b[3] && a[2] == b[2] && a[1] == b[1] && a[0] == b[0]
+	case 8:
+		return la == 8 && a[7] == b[7] && a[6] == b[6] && a[5] == b[5] && a[4] == b[4] && a[3] == b[3] && a[2] == b[2] && a[1] == b[1] && a[0] == b[0]
+	case lb:
+		break
+	default: // la != lb
+		return false
+	}
+	return string(b) == string(a)
 }
