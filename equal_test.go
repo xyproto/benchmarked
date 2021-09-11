@@ -47,7 +47,6 @@ var (
 		"equal30":     equal30,
 		"equal31":     equal31,
 		"equal32":     equal32,
-		"equal33":     equal33,
 	}
 )
 
