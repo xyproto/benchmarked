@@ -7,6 +7,24 @@ import (
 // Equal checks if two slices of bytes are equal
 var Equal = equal7 // previously equal14
 
+func examineCenter(start, stop int, a, b *[]byte, wg *sync.WaitGroup, differ *bool) {
+	if start == stop {
+		wg.Done()
+		return
+	}
+	m := start + (stop-start)/2
+	//fmt.Printf("range %d to %d, center %d\n", start, stop, m)
+	if (*a)[m] != (*b)[m] {
+		*differ = true
+		wg.Done()
+		return
+	}
+	wg.Add(2)
+	go examineCenter(start, m, a, b, wg, differ)
+	go examineCenter(m, stop, a, b, wg, differ)
+	wg.Done()
+}
+
 func equal1(a, b []byte) bool {
 	return string(a) == string(b)
 }
@@ -92,22 +110,6 @@ func equal4(a, b []byte) bool {
 }
 
 func equal5(a, b []byte) bool {
-	la := len(a)
-	lb := len(b)
-	if la == 0 && lb == 0 {
-		return true
-	} else if la != lb {
-		return false
-	}
-	for i := 0; i < lb; i++ {
-		if i >= la || a[i] != b[i] {
-			return false
-		}
-	}
-	return true
-}
-
-func equal6(a, b []byte) bool {
 	if len(a) != len(b) {
 		return false
 	}
@@ -119,7 +121,7 @@ func equal6(a, b []byte) bool {
 	return true
 }
 
-func equal7(a, b []byte) bool {
+func equal6(a, b []byte) bool {
 	if len(a) != len(b) {
 		return false
 	}
@@ -131,7 +133,7 @@ func equal7(a, b []byte) bool {
 	return true
 }
 
-func equal8(a, b []byte) bool {
+func equal7(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -155,7 +157,7 @@ func equal8(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal9(a, b []byte) bool {
+func equal8(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -181,7 +183,7 @@ func equal9(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal10(a, b []byte) bool {
+func equal9(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -211,25 +213,7 @@ func equal10(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func examineCenter(start, stop int, a, b *[]byte, wg *sync.WaitGroup, differ *bool) {
-	if start == stop {
-		wg.Done()
-		return
-	}
-	m := start + (stop-start)/2
-	//fmt.Printf("range %d to %d, center %d\n", start, stop, m)
-	if (*a)[m] != (*b)[m] {
-		*differ = true
-		wg.Done()
-		return
-	}
-	wg.Add(2)
-	go examineCenter(start, m, a, b, wg, differ)
-	go examineCenter(m, stop, a, b, wg, differ)
-	wg.Done()
-}
-
-func equal11(a, b []byte) bool {
+func equal10(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -250,7 +234,129 @@ func equal11(a, b []byte) bool {
 	}
 }
 
+func equal11(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 0:
+		return lb == 0
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 2:
+		return lb == 2 && a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case lb:
+		return !(string(a) != string(b))
+	default: // la != lb
+		return false
+	}
+}
+
 func equal12(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch la {
+	case 0:
+		return lb == 0
+	case 1:
+		return lb == 1 && a[0] == b[0]
+	case 2:
+		return lb == 2 && a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 4:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+	case 5:
+		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4]
+	case lb:
+		return !(string(a) != string(b))
+	default: // la != lb
+		return false
+	}
+}
+
+func equal13(a, b []byte) bool {
+	la := len(a)
+	if la < 9 {
+		lb := len(b)
+		switch la {
+		case 0:
+			return lb == 0
+		case 1:
+			return lb == 1 && a[0] == b[0]
+		case 2:
+			return lb == 2 && a[0] == b[0] && a[1] == b[1]
+		case 3:
+			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+		case 4:
+			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+		}
+	}
+	return string(a) == string(b)
+}
+
+func equal14(a, b []byte) bool {
+	la := len(a)
+	if la < 9 {
+		lb := len(b)
+		switch la {
+		case 1:
+			return lb == 1 && a[0] == b[0]
+		case 2:
+			return lb == 2 && a[0] == b[0] && a[1] == b[1]
+		case 3:
+			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+		case 4:
+			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+		case 0:
+			return lb == 0
+		}
+	}
+	return string(a) == string(b)
+}
+
+func equal15(a, b []byte) bool {
+	la := len(a)
+	if la < 9 {
+		lb := len(b)
+		switch la {
+		case 4:
+			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+		case 3:
+			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+		case 2:
+			return lb == 2 && a[0] == b[0] && a[1] == b[1]
+		case 1:
+			return lb == 1 && a[0] == b[0]
+		case 0:
+			return lb == 0
+		}
+	}
+	return string(a) == string(b)
+}
+
+func equal16(a, b []byte) bool {
+	la := len(a)
+	if la < 5 {
+		lb := len(b)
+		switch la {
+		case 4:
+			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+		case 3:
+			return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+		case 2:
+			return lb == 2 && a[0] == b[0] && a[1] == b[1]
+		case 1:
+			return lb == 1 && a[0] == b[0]
+		case 0:
+			return lb == 0
+		}
+	}
+	return string(a) == string(b)
+}
+
+func equal17(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -262,7 +368,7 @@ func equal12(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal13(a, b []byte) bool {
+func equal18(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -276,7 +382,7 @@ func equal13(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal14(a, b []byte) bool {
+func equal19(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -292,7 +398,7 @@ func equal14(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal15(a, b []byte) bool {
+func equal20(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -310,7 +416,7 @@ func equal15(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal16(a, b []byte) bool {
+func equal21(a, b []byte) bool {
 	if len(a) != len(b) {
 		return false
 	}
@@ -331,7 +437,7 @@ func equal16(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal17(a, b []byte) bool {
+func equal22(a, b []byte) bool {
 	l := len(a)
 	if l != len(b) {
 		return false
@@ -355,7 +461,7 @@ func equal17(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal18(a, b []byte) bool {
+func equal23(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch lb {

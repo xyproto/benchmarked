@@ -20,7 +20,6 @@ var (
 		"equal2":      equal2,
 		"equal3":      equal3,
 		"equal4":      equal4,
-		"equal5":      equal5,
 		"equal6":      equal6,
 		"equal7":      equal7,
 		"equal8":      equal8,
@@ -34,6 +33,11 @@ var (
 		"equal16":     equal16,
 		"equal17":     equal17,
 		"equal18":     equal18,
+		"equal19":     equal19,
+		"equal20":     equal20,
+		"equal21":     equal21,
+		"equal22":     equal22,
+		"equal23":     equal23,
 	}
 )
 
