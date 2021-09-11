@@ -101,7 +101,7 @@ func Equal(a, b []byte) bool {
 
 ## Accuracy
 
-I am aware that perfect benchmarking is a tricky.
+I am aware that perfect benchmarking is tricky.
 
 Please let me know if you have improvements to how the functions are benchmarked, or how the benchmarks are interpreted!
 
