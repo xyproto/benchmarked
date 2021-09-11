@@ -91,7 +91,7 @@ func equal4(a, b []byte) bool {
 	return true
 }
 
-func equal6(a, b []byte) bool {
+func equal5(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	if la == 0 && lb == 0 {
@@ -107,7 +107,7 @@ func equal6(a, b []byte) bool {
 	return true
 }
 
-func equal7(a, b []byte) bool {
+func equal6(a, b []byte) bool {
 	if len(a) != len(b) {
 		return false
 	}
@@ -119,7 +119,7 @@ func equal7(a, b []byte) bool {
 	return true
 }
 
-func equal8(a, b []byte) bool {
+func equal7(a, b []byte) bool {
 	if len(a) != len(b) {
 		return false
 	}
@@ -131,7 +131,7 @@ func equal8(a, b []byte) bool {
 	return true
 }
 
-func equal10(a, b []byte) bool {
+func equal8(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -155,7 +155,7 @@ func equal10(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal11(a, b []byte) bool {
+func equal9(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -181,7 +181,7 @@ func equal11(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal12(a, b []byte) bool {
+func equal10(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -229,7 +229,7 @@ func examineCenter(start, stop int, a, b *[]byte, wg *sync.WaitGroup, differ *bo
 	wg.Done()
 }
 
-func equal13(a, b []byte) bool {
+func equal11(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch la {
@@ -250,7 +250,7 @@ func equal13(a, b []byte) bool {
 	}
 }
 
-func equal14(a, b []byte) bool {
+func equal12(a, b []byte) bool {
 	switch len(a) {
 	case 0:
 		return len(b) == 0
@@ -262,7 +262,7 @@ func equal14(a, b []byte) bool {
 	return string(a) == string(b)
 }
 
-func equal15(a, b []byte) bool {
+func equal13(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch lb {
