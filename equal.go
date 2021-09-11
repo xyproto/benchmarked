@@ -260,42 +260,6 @@ func examineCenter(start, stop int, a, b *[]byte, wg *sync.WaitGroup, differ *bo
 	wg.Done()
 }
 
-func equal13(a, b []byte) bool {
-	la := len(a)
-	lb := len(b)
-	switch la {
-	case 0:
-		return lb == 0
-	case 1:
-		return lb == 1 && a[0] == b[0]
-	case 2:
-		return lb == 2 && a[0] == b[0] && a[1] == b[1]
-	case 3:
-		return lb == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
-	case 4:
-		return lb == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
-	case 5:
-		return lb == 5 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4]
-	case 6:
-		return lb == 6 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4] && a[5] == b[5]
-	case 7:
-		return lb == 7 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4] && a[5] == b[5] && a[6] == b[6]
-	case lb:
-		break
-	default: // la != lb
-		return false
-	}
-
-	differ := false
-
-	var wg sync.WaitGroup
-	wg.Add(1)
-	go examineCenter(0, la-1, &a, &b, &wg, &differ)
-	wg.Wait()
-
-	return differ
-}
-
 func equal14(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
