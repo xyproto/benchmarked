@@ -5,7 +5,7 @@ import (
 )
 
 // Equal checks if two slices of bytes are equal
-var Equal = equal7 // previously equal14
+var Equal = equal12
 
 func examineCenter(start, stop int, a, b *[]byte, wg *sync.WaitGroup, differ *bool) {
 	if start == stop {
