@@ -263,6 +263,99 @@ func equal12(a, b []byte) bool {
 }
 
 func equal13(a, b []byte) bool {
+	switch len(a) {
+	case 0:
+		return len(b) == 0
+	case 1:
+		return len(b) == 1 && a[0] == b[0]
+	case 2:
+		return len(b) == 2 && a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return len(b) == 2 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	}
+	return string(a) == string(b)
+}
+
+func equal14(a, b []byte) bool {
+	switch len(a) {
+	case 0:
+		return len(b) == 0
+	case 1:
+		return len(b) == 1 && a[0] == b[0]
+	case 2:
+		return len(b) == 2 && a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return len(b) == 2 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 4:
+		return len(b) == 2 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+	}
+	return string(a) == string(b)
+}
+
+func equal15(a, b []byte) bool {
+	switch len(a) {
+	case 0:
+		return len(b) == 0
+	case 1:
+		return len(b) == 1 && a[0] == b[0]
+	case 2:
+		return len(b) == 2 && a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return len(b) == 3 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 4:
+		return len(b) == 4 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+	case 5:
+		return len(b) == 5 && a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4]
+	}
+	return string(a) == string(b)
+}
+
+func equal16(a, b []byte) bool {
+	if len(a) != len(b) {
+		return false
+	}
+	switch len(a) {
+	case 0:
+		return true
+	case 1:
+		return a[0] == b[0]
+	case 2:
+		return a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 4:
+		return a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+	case 5:
+		return a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4]
+	}
+	return string(a) == string(b)
+}
+
+func equal17(a, b []byte) bool {
+	l := len(a)
+	if l != len(b) {
+		return false
+	}
+	switch l {
+	case 0:
+		return true
+	case 1:
+		return a[0] == b[0]
+	case 2:
+		return a[0] == b[0] && a[1] == b[1]
+	case 3:
+		return a[0] == b[0] && a[1] == b[1] && a[2] == b[2]
+	case 4:
+		return a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3]
+	case 5:
+		return a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4]
+	case 6:
+		return a[0] == b[0] && a[1] == b[1] && a[2] == b[2] && a[3] == b[3] && a[4] == b[4] && a[5] == b[5]
+	}
+	return string(a) == string(b)
+}
+
+func equal18(a, b []byte) bool {
 	la := len(a)
 	lb := len(b)
 	switch lb {

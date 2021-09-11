@@ -29,6 +29,11 @@ var (
 		"equal11":     equal11,
 		"equal12":     equal12,
 		"equal13":     equal13,
+		"equal14":     equal14,
+		"equal15":     equal15,
+		"equal16":     equal16,
+		"equal17":     equal17,
+		"equal18":     equal18,
 	}
 )
 
