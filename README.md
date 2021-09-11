@@ -6,6 +6,13 @@ The quest to find a faster `bytes.Equal` function.
 
 `equal10` does better than `bytes.Equal` for byte slices of length 0, 1, 4K, 4M and 64M.
 
+For the 64M benchmark, for example, the nanosecond per operation is lower and the throughput is higher:
+
+```
+BenchmarkEqual/equal10_64M-12     	     940	   1278144 ns/op	52504.95 MB/s
+BenchmarkEqual/bytes.Equal_64M-12 	     784	   1655015 ns/op	40548.79 MB/s
+```
+
 Tested on Arch Linux, using `go version go1.17.1 linux/amd64`.
 
 Output from `go test -bench=.`, also using benchmark functions that comes with the Go compiler source code itself:
