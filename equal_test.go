@@ -24,9 +24,9 @@ var (
 		//"equal7":      equal7,
 		//"equal8":      equal8,
 		//"equal9":      equal9,
-		"equal10": equal10,
-		//"equal11":     equal11,
-		//"equal12":     equal12,
+		//"equal10": equal10,
+		"equal11": equal11,
+		//"equal12": equal12,
 		//"equal13": equal13,
 		//"equal14":     equal14,
 		//"equal15":     equal15,
@@ -48,7 +48,9 @@ var (
 		//"equal31":     equal31,
 		//"equal32":     equal32,
 		"equal33": equal33,
-		"equal34": equal34,
+		//"equal34": equal34,
+		//"equal35": equal35,
+		//"equal36": equal36,
 	}
 )
 
