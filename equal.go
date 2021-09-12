@@ -259,7 +259,7 @@ func equal11(a, b []byte) bool {
 	case 0:
 		return lb == 0
 	case lb:
-		return !(string(a[2:]) != string(b[2:]))
+		return string(a) == string(b)
 	default: // la != lb
 		return false
 	}
@@ -274,7 +274,7 @@ func equal12(a, b []byte) bool {
 	case 0:
 		return lb == 0
 	case lb:
-		return !(string(a) != string(b))
+		return string(a) == string(b)
 	default: // la != lb
 		return false
 	}
@@ -728,4 +728,35 @@ func equal34(a, b []byte) bool {
 	default:
 		return false
 	}
+}
+
+func equal35(a, b []byte) bool {
+	la := len(a)
+	lb := len(b)
+	switch {
+	case la != lb:
+		return false
+	// la == lb at this point
+	case la == 0: // && lb == 0
+		return true
+	case la == 1: // && lb == 1
+		return a[0] == b[0]
+	case a[la-1] != b[lb-1]: // last one differs
+		return false
+	case la == 2: // && lb == 2
+		return a[0] == b[0] && a[1] == b[1]
+	case a[la>>2] != b[lb>>2]: // center one differs
+		return false
+	}
+	return string(a) == string(b) // asm compare
+}
+
+func equal36(a, b []byte) bool {
+	la := len(a)
+	if la == 0 {
+		return len(b) == 0
+	} else if la == len(b) {
+		return !(string(a) != string(b))
+	}
+	return false
 }
