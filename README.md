@@ -2,6 +2,8 @@
 
 The quest to find a faster `bytes.Equal` function.
 
+**Update**: I have abandoned this project and am trying to improve the assembly code in the Go compiler instead.
+
 ## Benchmark results
 
 Tested on Arch Linux, using `go version go1.17.1 linux/amd64`.
